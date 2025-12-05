@@ -24,7 +24,6 @@ sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh
 
 echo "Перезапуск sshd"
 sudo systemctl restart sshd
-sudo systemctl enable sshd
 
 echo "Копирование ключа"
 sudo mkdir ~/.ssh

@@ -44,12 +44,10 @@ sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh
 
 echo "Перезапуск sshd"
 sudo systemctl restart sshd
-sudo systemctl enable sshd
 
 echo "Копирование ключей и списка хостов"
 sudo mkdir ~/.ssh
 sudo cp id_rsa ~/.ssh/
 sudo cp id_rsa.pub ~/.ssh/
-sudo cp known_hosts ~/.ssh/
 
 /bin/bash
