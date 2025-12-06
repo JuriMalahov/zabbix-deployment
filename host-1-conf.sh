@@ -2,6 +2,9 @@
 
 echo "Настройка сети для первого сервера"
 
+echo "Настройка /etc/hosts"
+sudo cp hosts /etc/hosts
+
 echo "Настройка имени узла"
 sudo hostnamectl set-hostname mon-host-1
 
@@ -25,8 +28,5 @@ sudo systemctl restart sshd
 echo "Копирование ключа"
 sudo mkdir -p ~/.ssh
 sudo cp authorized_keys ~/.ssh/
-
-echo "Настройка /etc/hosts"
-sudo cp hosts /etc/hosts
 
 /bin/bash
