@@ -3,7 +3,7 @@
 echo "Настройка сети для первого сервера"
 
 echo "Настройка имени узла"
-hostnamectl set-hostname mon-server
+sudo hostnamectl set-hostname mon-server
 
 echo "Настройка /etc/hosts"
 sudo cp hosts /etc/hosts

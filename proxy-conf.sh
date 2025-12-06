@@ -3,16 +3,16 @@
 echo "Настройка сети для первого сервера"
 
 echo "Настройка имени узла"
-hostnamectl set-hostname mon-proxy
+sudo hostnamectl set-hostname mon-proxy
 
 echo "Настройка /etc/hosts"
 sudo cp hosts /etc/hosts
 
 echo "Настройка /etc/network/interfaces"
+sudo ifdown enp0s3
 sudo cp interfaces-p /etc/network/interfaces
 
 echo "Перезапуск сервиса networking"
-sudo ifdown enp0s3
 sudo systemctl restart networking
 
 echo "Настройка SSH"
