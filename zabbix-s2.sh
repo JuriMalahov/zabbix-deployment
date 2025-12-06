@@ -7,6 +7,7 @@ sudo dpkg -i zabbix-release_latest_7.4+debian12_all.deb
 sudo apt-get update
 sudo apt-get install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
 
+cd ~/zabbix-deployment/
 sudo cp zabbix_server2.conf /etc/zabbix/zabbix_server.conf
 
 echo "Установка и настройка MariaDB для server 2"
@@ -27,6 +28,6 @@ sudo cp galera2.cnf /etc/mysql/conf.d/galera.cnf
 
 echo "Запуск MariaDB и Zabbix server 2"
 
-sudo systemctl restart mariadb
+sudo galera_new_cluster
 sudo systemctl restart zabbix-server zabbix-agent apache2
 sudo systemctl enable zabbix-server zabbix-agent apache2

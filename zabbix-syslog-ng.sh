@@ -38,7 +38,7 @@ ssh user@mon-server-2 -o StrictHostKeyChecking=no < zabbix-s2.sh
 
 echo "Запуск кластера Galera и Zabbix server 1"
 
-sudo galera_new_cluster
+sudo systemctl restart mariadb
 sudo systemctl restart zabbix-server zabbix-agent apache2
 sudo systemctl enable zabbix-server zabbix-agent apache2
 
