@@ -15,13 +15,13 @@ sudo cp zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
 echo "Установка и настройка MariaDB для server 1"
 
 sudo apt-get install mariadb-server -y
-sudo mysql -uroot -p1234
+#sudo mysql -uroot -p1234
 
-create database zabbix character set utf8mb4 collate utf8mb4_bin;
-create user zabbix@localhost identified by 'password';
-grant all privileges on zabbix.* to zabbix@localhost;
-set global log_bin_trust_function_creators = 0;
-quit;
+sudo mysql -uroot -p1234 -e "create database zabbix character set utf8mb4 collate utf8mb4_bin;"
+sudo mysql -uroot -p1234 -e "create user zabbix@localhost identified by 'password';"
+sudo mysql -uroot -p1234 -e "grant all privileges on zabbix.* to zabbix@localhost;"
+sudo mysql -uroot -p1234 -e "set global log_bin_trust_function_creators = 0;"
+#quit;
 
 echo "Восстановление базы данных сервера"
 
