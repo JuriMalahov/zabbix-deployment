@@ -46,7 +46,7 @@ echo "Перезапуск sshd"
 sudo systemctl restart sshd
 
 echo "Копирование ключей и списка хостов"
-sudo mkdir ~/.ssh
+sudo mkdir -p ~/.ssh
 sudo cp id_rsa ~/.ssh/
 sudo cp id_rsa.pub ~/.ssh/
 

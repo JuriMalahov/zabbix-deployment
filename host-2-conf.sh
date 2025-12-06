@@ -12,8 +12,8 @@ echo "Настройка /etc/network/interfaces"
 sudo cp interfaces-h2 /etc/network/interfaces
 
 echo "Перезапуск сервиса networking"
-sudo systemctl restart networking
 sudo ifdown enp0s3
+sudo systemctl restart networking
 
 echo "Настройка SSH"
 sudo apt-get update
@@ -26,7 +26,7 @@ echo "Перезапуск sshd"
 sudo systemctl restart sshd
 
 echo "Копирование ключа"
-sudo mkdir ~/.ssh
+sudo mkdir -p ~/.ssh
 sudo cp authorized_keys ~/.ssh/
 
 /bin/bash
