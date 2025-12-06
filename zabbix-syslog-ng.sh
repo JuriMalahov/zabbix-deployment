@@ -14,7 +14,7 @@ sudo cp zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
 
 echo "Установка и настройка MariaDB для server 1"
 
-sudo apt-get install mariadb-server -y
+sudo apt-get install rsync mariadb-server galera-4 -y
 #sudo mysql -uroot -p1234
 
 sudo mysql -uroot -p1234 -e "create database zabbix character set utf8mb4 collate utf8mb4_bin;"
@@ -38,8 +38,12 @@ ssh user@mon-server-2 -o StrictHostKeyChecking=no < zabbix-s2.sh
 
 echo "Запуск кластера Galera и Zabbix server 1"
 
-sudo systemctl restart mariadb
+sudo galera_new_cluster
 sudo systemctl restart zabbix-server zabbix-agent apache2
 sudo systemctl enable zabbix-server zabbix-agent apache2
 
+echo "Запуск MariaDB и Zabbix server 2"
 
+ssh user@mon-server-2 -o StrictHostKeyChecking=no "sudo systemctl restart mariadb"
+ssh user@mon-server-2 -o StrictHostKeyChecking=no "sudo systemctl restart zabbix-server zabbix-agent apache2"
+ssh user@mon-server-2 -o StrictHostKeyChecking=no "sudo systemctl enable zabbix-server zabbix-agent apache2"

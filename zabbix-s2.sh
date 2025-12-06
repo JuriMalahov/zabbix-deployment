@@ -12,7 +12,7 @@ sudo cp zabbix_server2.conf /etc/zabbix/zabbix_server.conf
 
 echo "Установка и настройка MariaDB для server 2"
 
-sudo apt-get install mariadb-server -y
+sudo apt-get install rsync mariadb-server galera-4 -y
 #sudo mysql -uroot -p1234
 
 #create database zabbix character set utf8mb4 collate utf8mb4_bin;
@@ -26,8 +26,3 @@ echo "Настройка Galera для server 2"
 sudo systemctl stop mariadb
 sudo cp galera2.cnf /etc/mysql/conf.d/galera.cnf
 
-echo "Запуск MariaDB и Zabbix server 2"
-
-sudo galera_new_cluster
-sudo systemctl restart zabbix-server zabbix-agent apache2
-sudo systemctl enable zabbix-server zabbix-agent apache2
