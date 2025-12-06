@@ -34,7 +34,7 @@ sudo cp galera1.cnf /etc/mysql/conf.d/galera.cnf
 
 
 
-ssh user@mon-server-2 -o StrictHostKeyChecking=no '~/zabbix-deployment/zabbix-s2.sh'
+ssh user@mon-server-2 -o StrictHostKeyChecking=no < zabbix-s2.sh
 
 echo "Запуск кластера Galera и Zabbix server 1"
 
