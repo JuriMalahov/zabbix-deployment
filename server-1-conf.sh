@@ -2,16 +2,11 @@
 
 echo "Настройка сети для первого сервера"
 
-echo "Настройка имени узла"
-sudo hostnamectl set-hostname mon-server
-
 echo "Настройка /etc/hosts"
 sudo cp hosts /etc/hosts
 
-#echo "Настройка /etc/resolv.conf"
-#sudo cat > /etc/hosts <<EOF
-#nameserver 8.8.8.8
-#EOF
+echo "Настройка имени узла"
+sudo hostnamectl set-hostname mon-server
 
 echo "Настройка /etc/network/interfaces"
 sudo cp interfaces /etc/network/interfaces

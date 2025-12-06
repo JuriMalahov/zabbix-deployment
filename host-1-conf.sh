@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Настройка сети для первого сервера"
+echo "Настройка сети для первого хоста"
 
 echo "Настройка /etc/hosts"
 sudo cp hosts /etc/hosts

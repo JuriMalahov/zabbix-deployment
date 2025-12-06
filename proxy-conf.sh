@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Настройка сети для первого сервера"
-
-echo "Настройка имени узла"
-sudo hostnamectl set-hostname mon-proxy
+echo "Настройка сети для прокси сервера"
 
 echo "Настройка /etc/hosts"
 sudo cp hosts /etc/hosts
+
+echo "Настройка имени узла"
+sudo hostnamectl set-hostname mon-proxy
 
 echo "Настройка /etc/network/interfaces"
 sudo ifdown enp0s3

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Настройка сети для первого сервера"
-
-echo "Настройка имени узла"
-sudo hostnamectl set-hostname mon-server-2
+echo "Настройка сети для второго сервера"
 
 echo "Настройка /etc/hosts"
 sudo cp hosts /etc/hosts
+
+echo "Настройка имени узла"
+sudo hostnamectl set-hostname mon-server-2
 
 echo "Настройка /etc/network/interfaces"
 sudo ifdown enp0s3
