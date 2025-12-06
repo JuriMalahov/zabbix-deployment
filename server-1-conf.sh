@@ -25,11 +25,8 @@ sudo apt-get update
 sudo apt-get install iptables -y
 sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o enp0s3 -j MASQUERADE
 
-echo "Сохранение правил iptables в /home/user/rules"
-sudo iptables-save > ~/rules
-
-echo "Добавление команды восстановления правил iptables при перезапуске в crontab"
-(crontab -l 2>/dev/null; echo "@reboot /sbin/iptables-restore < /home/user/rules") | crontab -
+echo "Установка iptables-persistent для сохранения правил iptables"
+sudo sudo apt-get install iptables-persistent -y
 
 echo "Настройка SSH"
 sudo apt-get install openssh-server -y
