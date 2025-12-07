@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Развертывание Zabbix"
+echo "Развертывание Zabbix Server"
 
 echo "Установка Zabbix Server для server 1"
 
@@ -34,7 +34,7 @@ sudo cp galera1.cnf /etc/mysql/conf.d/galera.cnf
 
 
 
-ssh user@mon-server-2 -o StrictHostKeyChecking=no < zabbix-s2.sh
+ssh user@mon-server-2 -o StrictHostKeyChecking=accept-new < zabbix-s2.sh
 
 echo "Запуск кластера Galera и Zabbix server 1"
 
@@ -44,6 +44,6 @@ sudo systemctl enable zabbix-server zabbix-agent apache2
 
 echo "Запуск MariaDB и Zabbix server 2"
 
-ssh user@mon-server-2 -o StrictHostKeyChecking=no "sudo systemctl restart mariadb"
-ssh user@mon-server-2 -o StrictHostKeyChecking=no "sudo systemctl restart zabbix-server zabbix-agent apache2"
-ssh user@mon-server-2 -o StrictHostKeyChecking=no "sudo systemctl enable zabbix-server zabbix-agent apache2"
+ssh user@mon-server-2 "sudo systemctl restart mariadb"
+ssh user@mon-server-2 "sudo systemctl restart zabbix-server zabbix-agent apache2"
+ssh user@mon-server-2 "sudo systemctl enable zabbix-server zabbix-agent apache2"
