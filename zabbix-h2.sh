@@ -10,7 +10,7 @@ sudo apt-get install -y zabbix-agent
 cd ~/zabbix-deployment/
 sudo cp zabbix_agentd2.conf /etc/zabbix/zabbix_agentd.conf
 
-echo "Перезапуск Zabbix proxy"
+echo "Перезапуск Zabbix agent"
 
 sudo systemctl restart zabbix-agent
 sudo systemctl enable zabbix-agent
