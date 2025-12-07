@@ -15,13 +15,11 @@ sudo cp zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
 echo "Установка и настройка MariaDB для server 1"
 
 sudo apt-get install rsync mariadb-server galera-4 -y
-#sudo mysql -uroot -p1234
 
 sudo mysql -uroot -p1234 -e "create database zabbix character set utf8mb4 collate utf8mb4_bin;"
 sudo mysql -uroot -p1234 -e "create user zabbix@localhost identified by 'password';"
 sudo mysql -uroot -p1234 -e "grant all privileges on zabbix.* to zabbix@localhost;"
 sudo mysql -uroot -p1234 -e "set global log_bin_trust_function_creators = 0;"
-#quit;
 
 echo "Восстановление базы данных сервера"
 
@@ -33,6 +31,7 @@ sudo systemctl stop mariadb
 sudo cp galera1.cnf /etc/mysql/conf.d/galera.cnf
 
 
+echo "Подключение к mon-server-2"
 
 ssh user@mon-server-2 -o StrictHostKeyChecking=accept-new < zabbix-s2.sh
 
@@ -47,3 +46,5 @@ echo "Запуск MariaDB и Zabbix server 2"
 ssh user@mon-server-2 "sudo systemctl restart mariadb"
 ssh user@mon-server-2 "sudo systemctl restart zabbix-server zabbix-agent apache2"
 ssh user@mon-server-2 "sudo systemctl enable zabbix-server zabbix-agent apache2"
+
+

@@ -13,13 +13,6 @@ sudo cp zabbix_server2.conf /etc/zabbix/zabbix_server.conf
 echo "Установка и настройка MariaDB для server 2"
 
 sudo apt-get install rsync mariadb-server galera-4 -y
-#sudo mysql -uroot -p1234
-
-#create database zabbix character set utf8mb4 collate utf8mb4_bin;
-#create user zabbix@localhost identified by 'password';
-#grant all privileges on zabbix.* to zabbix@localhost;
-#set global log_bin_trust_function_creators = 0;
-#quit;
 
 echo "Настройка Galera для server 2"
 
