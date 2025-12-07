@@ -41,7 +41,7 @@ echo "Копирование ключей и списка хостов"
 sudo mkdir -p ~/.ssh
 sudo cp id_rsa ~/.ssh/
 sudo cp id_rsa.pub ~/.ssh/
-sudo touch known_hosts ~/.ssh/
+sudo touch ~/.ssh/known_hosts
 sudo chown user:user ~/.ssh/known_hosts
 
 /bin/bash
